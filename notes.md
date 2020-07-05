@@ -1,5 +1,8 @@
 # Notes
 
+## Future To Dos
+
+* Set up linter
 
 ## Potential input structure
 

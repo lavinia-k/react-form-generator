@@ -7,3 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
+
+.form-field {
+  margin-bottom: 5px;
+}
