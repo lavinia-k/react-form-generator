@@ -8,6 +8,21 @@ body {
   text-align: center;
 }
 
+.form {
+  width: 90%;
+  margin: auto;
+  padding-top: 10px;
+  text-align: left;
+}
+
 .form-field {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-right: 30px;
+}
+
+label.field {
+  font-weight: bold;
 }

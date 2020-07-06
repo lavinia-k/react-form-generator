@@ -1,8 +1,15 @@
 # Notes
 
-## Future To Dos
+## To Dos
 
+* Implement group display and dependsOn
+* Add date field
+* Add JSON validation and throw appropriate error
+* Auto-generate unique key based on fieldDisplayName
+* Split into further components
 * Set up linter
+* Add detailed tests
+* Focus on UI/CSS
 
 ## Potential input structure
 
