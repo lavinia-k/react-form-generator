@@ -8,6 +8,15 @@ body {
   text-align: center;
 }
 
+.DemoApp > div {
+  width: 90%;
+  margin: 50px auto;
+}
+
+.recentSubmission pre {
+  text-align: left;
+}
+
 .form {
   width: 90%;
   margin: auto;

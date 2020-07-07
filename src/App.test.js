@@ -35,7 +35,7 @@ const testValidJsonFormSpec = {
     },
     {
       key: 'guardianfullname',
-      displayName: 'Full Name',
+      displayName: 'Guardian Full Name',
       groupDisplayName: 'guardiandetails',
       type: 'text',
       pattern: '([A-z.-]+\\s?\\b){2,6}',
@@ -43,7 +43,7 @@ const testValidJsonFormSpec = {
     },
     {
       key: 'guardianphone',
-      displayName: 'Phone Number',
+      displayName: 'Guardian Phone Number',
       groupDisplayName: 'guardiandetails',
       type: 'text',
       pattern: '[0-9-]+',
@@ -58,13 +58,15 @@ test('renders DemoApp heading', () => {
   expect(heading).toBeInTheDocument();
 });
 
-test('generates fields in JSON spec', () => {
-  const { getByText } = render(<FormGenerator form={testValidJsonFormSpec} />);
+test('renders fields in JSON spec that are not dependent on another field', () => {
+  const { getByText } = render(<FormGenerator form={testValidJsonFormSpec} submissionHandler={(formSubmission) => {}}/>);
   
   testValidJsonFormSpec.fields.map(field => {
-    const specDisplayName = field.displayName;
-    const displayName = screen.getAllByText(new RegExp(specDisplayName, "i"))[0];
-    expect(displayName).toBeInTheDocument();
+    if (!field.dependsOn) {
+      const specDisplayName = field.displayName;
+      const displayName = screen.getAllByText(new RegExp(specDisplayName, "i"))[0];
+      expect(displayName).toBeInTheDocument();
+    }
   })
 });
 

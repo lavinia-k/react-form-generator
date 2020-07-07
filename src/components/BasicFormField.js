@@ -10,7 +10,7 @@ function BasicFormField(props) {
         inputElements = options.map(option => (
             <React.Fragment key={option}>
                 <input type={type} name={key} value={option} required={required} pattern={pattern} checked={option === value} onChange={onInputChange}/>
-                <label htmlFor={option}>{option}</label>
+                {options.length > 1 && <label htmlFor={option}>{option}</label>}
             </React.Fragment>
         ));
     } else {

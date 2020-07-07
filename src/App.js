@@ -6,6 +6,7 @@ class DemoApp extends React.Component {
   state = {
     form: {
       formTitle: 'User Registration',
+      submissionMessage: 'Thank you for submitting!',
       fields: [
         {
           key: 'fullname',
@@ -25,47 +26,63 @@ class DemoApp extends React.Component {
           key: 'gender',
           displayName: 'Gender Identity',
           type: 'radio',
-          required: false,
           options: ['Woman', 'Man', 'Other']
         },
         {
           key: 'contactnumber',
           displayName: 'Contact Number',
           type: 'text',
-          pattern: '[0-9-]+',
-          required: true,
+          pattern: '[0-9-]+'
         },
         {
           key: 'guardianconsent',
           displayName: 'Require Guardian Consent?',
           type: 'checkbox',
-          pattern: '([A-z.-]+\\s?\b){2,6}'
+          pattern: '([A-z.-]+\\s?\b){2,6}',
+          options: ['true']
         },
         {
           key: 'guardianfullname',
-          displayName: 'Full Name',
-          groupDisplayName: 'guardiandetails',
+          displayName: 'Guardian Full Name',
+          groupKey: 'guardiandetails',
           type: 'text',
           pattern: '([A-z.-]+\\s?\\b){2,6}',
-          dependsOn: 'guardianconsent'
+          dependsOn: 'guardianconsent',
+          required: true
         },
         {
           key: 'guardianphone',
-          displayName: 'Phone Number',
-          groupDisplayName: 'guardiandetails',
+          displayName: 'Guardian Phone Number',
+          groupKey: 'guardiandetails',
           type: 'text',
           pattern: '[0-9-]+',
-          dependsOn: 'guardianconsent'
+          dependsOn: 'guardianconsent',
+          required: true
         },
       ]
     }
   }
 
+  handleSubmission = (formSubmission) => {
+    this.setState({
+        mostRecentSubmission: formSubmission
+    })
+  }
+
   render() {
     return (
-      <div className="DemoApp">
+      <div className='DemoApp'>
         <h1>DemoApp</h1>
-        <FormGenerator form={this.state.form}/>
+        <div className='formContainer'>
+          <h2>1. Generated Form</h2>
+          <FormGenerator form={this.state.form} submissionHandler={this.handleSubmission}/>
+        </div>
+        <div className='recentSubmission'>
+          <h2>2. Most Recent Form Submission</h2>
+          <pre>
+            {this.state.mostRecentSubmission ? JSON.stringify(this.state.mostRecentSubmission, null, 2) : "No recent submissions"}
+          </pre>
+        </div>
       </div>
     );
   }

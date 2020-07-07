@@ -2,13 +2,12 @@
 
 ## To Dos
 
-* Implement group display and dependsOn
-* Add date field
+* Add detailed tests
+* Implement group display (should be able to cover multi-value options for phone)
 * Add JSON validation and throw appropriate error
 * Auto-generate unique key based on fieldDisplayName
 * Split into further components
 * Set up linter
-* Add detailed tests
 * Focus on UI/CSS
 
 ## Potential input structure
