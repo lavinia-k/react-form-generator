@@ -15,6 +15,13 @@ class DemoApp extends React.Component {
           required: true,
         },
         {
+          key: 'dateofbirth',
+          displayName: 'Date Of Birth',
+          type: 'date',
+          pattern: '([A-z.-]+\\s?\\b){2,6}',
+          required: true,
+        },
+        {
           key: 'gender',
           displayName: 'Gender Identity',
           type: 'radio',
